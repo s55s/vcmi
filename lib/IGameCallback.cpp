@@ -47,7 +47,7 @@ void CPrivilagedInfoCallback::getFreeTiles (std::vector<int3> &tiles) const
 	}
 }
 
-void CPrivilagedInfoCallback::getTilesInRange( std::unordered_set<int3, ShashInt3> &tiles, int3 pos, int radious, boost::optional<PlayerColor> player/*=uninit*/, int mode/*=0*/, bool patrolDistance/*=false*/) const
+void CPrivilagedInfoCallback::getTilesInRange(std::unordered_set<int3, ShashInt3> &tiles, int3 pos, int radious, boost::optional<PlayerColor> player/*=uninit*/, int mode/*=0*/, int distanceFormula/*=0*/) const
 {
 	if(!!player && *player >= PlayerColor::PLAYER_LIMIT)
 	{
@@ -65,7 +65,9 @@ void CPrivilagedInfoCallback::getTilesInRange( std::unordered_set<int3, ShashInt
 			{
 				int3 tilePos(xd,yd,pos.z);
 				double distance;
-				if(patrolDistance)
+				if(distanceFormula == 2) // ambient soud distance
+					distance = pos.chebdist2d(tilePos);
+				if(distanceFormula == 1) // patrol distance
 					distance = pos.mandist2d(tilePos);
 				else
 					distance = pos.dist2d(tilePos) - 0.5;
