@@ -132,7 +132,8 @@ CGObjectInstance::CGObjectInstance():
 	ID(Obj::NO_OBJ),
 	subID(-1),
 	tempOwner(PlayerColor::UNFLAGGABLE),
-	blockVisit(false)
+	blockVisit(false),
+	ambientSound(soundBase::invalid)
 {
 }
 CGObjectInstance::~CGObjectInstance()

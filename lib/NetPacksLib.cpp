@@ -633,7 +633,7 @@ DLL_LINKAGE void HeroRecruited::applyGs( CGameState *gs )
 	h->attachTo(p);
 	if(fresh)
 	{
-		h->initObj(gs->getRandomGenerator());
+		gs->initObj(h);
 	}
 	gs->map->addBlockVisTiles(h);
 
@@ -698,7 +698,7 @@ DLL_LINKAGE void NewObject::applyGs( CGameState *gs )
 
 	gs->map->objects.push_back(o);
 	gs->map->addBlockVisTiles(o);
-	o->initObj(gs->getRandomGenerator());
+	gs->initObj(o);
 	gs->map->calculateGuardingGreaturePositions();
 
 	logGlobal->debugStream() << "added object id=" << id << "; address=" << (intptr_t)o << "; name=" << o->getObjectName();

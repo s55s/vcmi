@@ -227,6 +227,8 @@ public:
 	std::vector<CGObjectInstance*> guardingCreatures (int3 pos) const;
 	void updateRumor();
 
+	void initObj(CGObjectInstance * obj);
+
 	// ----- victory, loss condition checks -----
 
 	EVictoryLossCheckResult checkForVictoryAndLoss(PlayerColor player) const;

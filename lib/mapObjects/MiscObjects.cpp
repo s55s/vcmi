@@ -713,7 +713,7 @@ void CGMine::initObj(CRandomGenerator & rand)
 			tempOwner = PlayerColor::NEUTRAL;
 	}
 
-	producedQuantity = defaultResProduction();
+	producedQuantity = defaultResProduction();;
 }
 
 bool CGMine::isAbandoned() const
