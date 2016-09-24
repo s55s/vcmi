@@ -14,8 +14,20 @@
 			"type":"string",
 		},
 
-		"ambientSound": {
-			"type" : "string"
+		"sounds": {
+			"type":"object",
+			"additionalProperties" : false,
+			"description": "Sounds used by this object",
+			"properties" : {
+				"ambient" : {
+					"description" : "Background sound of object",
+					"type" : "string"
+				},
+				"visit" : {
+					"description" : "Sound that played on object visit",
+					"type" : "string"
+				}
+			}
 		},
 
 		"base": {

@@ -5,7 +5,7 @@
 		"index" : 48,
 		"handler": "magicSpring",
 		"base" : {
-			"ambientSound" : "LOOPFOUN"
+			"sounds" : { "ambient" : "LOOPFOUN" }
 		},
 		"types" : {
 			"object" : {
@@ -24,7 +24,7 @@
 		"index" : 55,
 		"handler": "oncePerWeek",
 		"base" : {
-			"ambientSound" : "LOOPLEPR"
+			"sounds" : { "ambient" : "LOOPLEPR" }
 		},
 		"types" : {
 			"object" : {
@@ -40,7 +40,7 @@
 		"index" : 112,
 		"handler": "oncePerWeek",
 		"base" : {
-			"ambientSound" : "LOOPWIND"
+			"sounds" : { "ambient" : "LOOPWIND" }
 		},
 		"types" : {
 			"object" : {
@@ -56,7 +56,7 @@
 		"index" : 109,
 		"handler": "oncePerWeek",
 		"base" : {
-			"ambientSound" : "LOOPMILL"
+			"sounds" : { "ambient" : "LOOPMILL" }
 		},
 		"types" : {
 			"object" : {
@@ -126,7 +126,7 @@
 		"index" : 12,
 		"handler": "pickable",
 		"base" : {
-			"ambientSound" : "LOOPCAMP"
+			"sounds" : { "ambient" : "LOOPCAMP" }
 		},
 		"types" : {
 			"object" : {
@@ -195,7 +195,7 @@
 		"index" : 4,
 		"handler": "oncePerHero",
 		"base" : {
-			"ambientSound" : "LOOPAREN"
+			"sounds" : { "ambient" : "LOOPAREN" }
 		},
 		"types" : {
 			"object" : {
@@ -211,7 +211,7 @@
 		"index" : 23,
 		"handler": "oncePerHero",
 		"base" : {
-			"ambientSound" : "LOOPSWAR"
+			"sounds" : { "ambient" : "LOOPSWAR" }
 		},
 		"types" : {
 			"object" : {
@@ -227,7 +227,7 @@
 		"index" : 32,
 		"handler": "oncePerHero",
 		"base" : {
-			"ambientSound" : "LOOPGARD"
+			"sounds" : { "ambient" : "LOOPGARD" }
 		},
 		"types" : {
 			"object" : {
@@ -256,7 +256,7 @@
 		"index" : 51,
 		"handler": "oncePerHero",
 		"base" : {
-			"ambientSound" : "LOOPMERC"
+			"sounds" : { "ambient" : "LOOPMERC" }
 		},
 		"types" : {
 			"object" : {
@@ -272,7 +272,7 @@
 		"index" : 61,
 		"handler": "oncePerHero",
 		"base" : {
-			"ambientSound" : "LOOPSTAR"
+			"sounds" : { "ambient" : "LOOPSTAR" }
 		},
 		"types" : {
 			"object" : {
@@ -302,7 +302,7 @@
 		"index" : 47,
 		"handler": "oncePerHero",
 		"base" : {
-			"ambientSound" : "LOOPMAGI"
+			"sounds" : { "ambient" : "LOOPMAGI" }
 		},
 		"types" : {
 			"object" : {
@@ -318,7 +318,7 @@
 		"index" : 107,
 		"handler": "oncePerHero",
 		"base" : {
-			"ambientSound" : "LOOPSWAR"
+			"sounds" : { "ambient" : "LOOPSWAR" }
 		},
 		"types" : {
 			"object" : {
@@ -334,7 +334,7 @@
 		"index" : 100,
 		"handler": "oncePerHero",
 		"base" : {
-			"ambientSound" : "LOOPLEAR"
+			"sounds" : { "ambient" : "LOOPLEAR" }
 		},
 		"types" : {
 			"object" : { 
@@ -352,7 +352,7 @@
 		"index" : 11,
 		"handler": "bonusingObject",
 		"base" : {
-			"ambientSound" : "LOOPBUOY"
+			"sounds" : { "ambient" : "LOOPBUOY" }
 		},
 		"types" : {
 			"object" : {
@@ -382,7 +382,7 @@
 		"index" : 28,
 		"handler": "bonusingObject",
 		"base" : {
-			"ambientSound" : "LOOPFAER"
+			"sounds" : { "ambient" : "LOOPFAER" }
 		},
 		"types" : {
 			"object" : {
@@ -399,7 +399,7 @@
 		"index" : 30,
 		"handler": "bonusingObject",
 		"base" : {
-			"ambientSound" : "LOOPFOUN"
+			"sounds" : { "ambient" : "LOOPFOUN" }
 		},
 		"types" : {
 			"object" : {
@@ -416,7 +416,7 @@
 		"index" : 31,
 		"handler": "bonusingObject",
 		"base" : {
-			"ambientSound" : "LOOPFALL"
+			"sounds" : { "ambient" : "LOOPFALL" }
 		},
 		"types" : {
 			"object" : {
@@ -477,7 +477,7 @@
 		"index" : 94,
 		"handler": "bonusingObject",
 		"base" : {
-			"ambientSound" : "LOOPHORS"
+			"sounds" : { "ambient" : "LOOPHORS" }
 		},
 		"types" : {
 			"object" : {
@@ -494,7 +494,7 @@
 		"index" : 96,
 		"handler": "bonusingObject",
 		"base" : {
-			"ambientSound" : "LOOPSANC"
+			"sounds" : { "ambient" : "LOOPSANC" }
 		},
 		"types" : {
 			"object" : {
@@ -511,7 +511,7 @@
 		"index" : 64,
 		"handler": "bonusingObject",
 		"base" : {
-			"ambientSound" : "LOOPFLAG"
+			"sounds" : { "ambient" : "LOOPFLAG" }
 		},
 		"types" : {
 			"object" : {

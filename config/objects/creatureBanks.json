@@ -7,7 +7,7 @@
 			{
 				"index" : 0,
 				"name" : "Cyclops Stockpile",
-				"ambientSound" : "LOOPCAVE",
+				"sounds" : { "ambient" : "LOOPCAVE" },
 				"rmg" : {
 					"value"		: 3000,
 					"rarity"	: 100
@@ -113,7 +113,7 @@
 				"index" : 1,
 				"resetDuration" : 0,
 				"name" : "Dwarven Treasury",
-				"ambientSound" : "LOOPDWAR",
+				"sounds" : { "ambient" : "LOOPDWAR" },
 				"rmg" : {
 					"value"		: 2000,
 					"rarity"	: 100
@@ -201,7 +201,7 @@
 				"index" : 2,
 				"resetDuration" : 0,
 				"name" : "Griffin Conservatory",
-				"ambientSound" : "LOOPGRIF",
+				"sounds" : { "ambient" : "LOOPGRIF" },
 				"rmg" : {
 					"value"		: 2000,
 					"rarity"	: 100
@@ -273,7 +273,7 @@
 				"index" : 3,
 				"resetDuration" : 0,
 				"name" : "Imp Cache",
-				"ambientSound" : "LOOPFIRE",
+				"sounds" : { "ambient" : "LOOPFIRE" },
 				"rmg" : {
 					"value"		: 5000,
 					"rarity"	: 100
@@ -360,7 +360,7 @@
 				"index" : 4,
 				"resetDuration" : 0,
 				"name" : "Medusa Stores",
-				"ambientSound" : "LOOPMEDU",
+				"sounds" : { "ambient" : "LOOPMEDU" },
 				"rmg" : {
 					"value"		: 1500,
 					"rarity"	: 100
@@ -448,7 +448,7 @@
 				"index" : 5,
 				"resetDuration" : 0,
 				"name" : "Naga Bank",
-				"ambientSound" : "LOOPNAGA",
+				"sounds" : { "ambient" : "LOOPNAGA" },
 				"rmg" : {
 					"value"		: 3000,
 					"rarity"	: 100
@@ -536,7 +536,7 @@
 				"index" : 6,
 				"resetDuration" : 0,
 				"name" : "Dragon Fly Hive",
-				"ambientSound" : "LOOPLEAR",
+				"sounds" : { "ambient" : "LOOPLEAR" },
 				"rmg" : {
 					"value"		: 9000,
 					"rarity"	: 100
@@ -797,7 +797,7 @@
 				"index" : 0,
 				"resetDuration" : 0,
 				"name" : "Crypt",
-				"ambientSound" : "LOOPDEAD",
+				"sounds" : { "ambient" : "LOOPDEAD" },
 				"rmg" : {
 					"value"		: 1000,
 					"rarity"	: 100
@@ -887,7 +887,7 @@
 				"index" : 0,
 				"resetDuration" : 0,
 				"name" : "Dragon Utopia",
-				"ambientSound" : "LOOPDRAG",
+				"sounds" : { "ambient" : "LOOPDRAG" },
 				"rmg" : {
 					"value"		: 10000,
 					"rarity"	: 100

@@ -183,21 +183,21 @@
 		"index" :53,
 		"handler": "mine",
 		"types" : {
-			"sawmill" :       { "index" : 0, "rmg" : { "value" : 1500 }, "ambientSound" : "LOOPLUMB" },
-			"alchemistLab" :  { "index" : 1, "rmg" : { "value" : 3500 }, "ambientSound" : "LOOPSTAR" },
-			"orePit" :        { "index" : 2, "rmg" : { "value" : 1500 }, "ambientSound" : "LOOPSULF" },
-			"sulfurDune" :    { "index" : 3, "rmg" : { "value" : 3500 }, "ambientSound" : "LOOPSULF" },
-			"crystalCavern" : { "index" : 4, "rmg" : { "value" : 3500 }, "ambientSound" : "LOOPCRYS" },
-			"gemPond" :       { "index" : 5, "rmg" : { "value" : 3500 }, "ambientSound" : "LOOPGEMP" },
-			"goldMine" :      { "index" : 6, "rmg" : { "value" : 7000 }, "ambientSound" : "LOOPMINE" },
-			"abandoned" :	  { "index" : 7, "ambientSound" : "LOOPCAVE" }
+			"sawmill" :       { "index" : 0, "rmg" : { "value" : 1500 }, "sounds" : { "ambient" : "LOOPLUMB" }},
+			"alchemistLab" :  { "index" : 1, "rmg" : { "value" : 3500 }, "sounds" : { "ambient" : "LOOPSTAR" }},
+			"orePit" :        { "index" : 2, "rmg" : { "value" : 1500 }, "sounds" : { "ambient" : "LOOPSULF" }},
+			"sulfurDune" :    { "index" : 3, "rmg" : { "value" : 3500 }, "sounds" : { "ambient" : "LOOPSULF" }},
+			"crystalCavern" : { "index" : 4, "rmg" : { "value" : 3500 }, "sounds" : { "ambient" : "LOOPCRYS" }},
+			"gemPond" :       { "index" : 5, "rmg" : { "value" : 3500 }, "sounds" : { "ambient" : "LOOPGEMP" }},
+			"goldMine" :      { "index" : 6, "rmg" : { "value" : 7000 }, "sounds" : { "ambient" : "LOOPMINE" }},
+			"abandoned" :	  { "index" : 7, "sounds" : { "ambient" : "LOOPCAVE" }}
 		}
 	},
 	"abandonedMine" : {
 		"index" :220, 
 		"handler": "mine",
 		"base" : {
-			"ambientSound" : "LOOPCAVE"
+			"sounds" : { "ambient" : "LOOPCAVE" }
 		},
 		"types" : {
 			"mine" : { "index" : 7 }
@@ -208,16 +208,16 @@
 		"index" :33, 
 		"handler": "garrison",
 		"types":{
-			"normal":{"index": 0, "ambientSound" : "LOOPSWAR"},
-			"antiMagic":{"index": 1, "ambientSound" : "LOOPMAGI"}
+			"normal":{"index": 0, "sounds" : { "ambient" : "LOOPSWAR" }},
+			"antiMagic":{"index": 1, "sounds" : { "ambient" : "LOOPMAGI" }}
 		}	
 	},
 	"garrisonVertical": { 
 		"index" :219, 
 		"handler": "garrison",
 		"types":{
-			"normal":{"index": 0, "ambientSound" : "LOOPSWAR"},
-			"antiMagic":{"index": 1, "ambientSound" : "LOOPMAGI"}			
+			"normal":{"index": 0, "sounds" : { "ambient" : "LOOPSWAR" }},
+			"antiMagic":{"index": 1, "sounds" : { "ambient" : "LOOPMAGI" }}			
 		}	
 	},
 
@@ -226,7 +226,7 @@
 		"index" :43,
 		"handler": "monolith",
 		"base" : {
-			"ambientSound" : "LOOPMON1"
+			"sounds" : { "ambient" : "LOOPMON1" }
 		},
 		"types" : {
 			"monolith1" : { "index" : 0 },
@@ -243,7 +243,7 @@
 		"index" :44,
 		"handler": "monolith",
 		"base" : {
-			"ambientSound" : "LOOPMON1"
+			"sounds" : { "ambient" : "LOOPMON1" }
 		},
 		"types" : {
 			"monolith1" : { "index" : 0 },
@@ -260,7 +260,7 @@
 		"index" :45,
 		"handler": "monolith",
 		"base" : {
-			"ambientSound" : "LOOPMON2"
+			"sounds" : { "ambient" : "LOOPMON2" }
 		},
 		"types" : {
 			"monolith1" : { "index" : 0 },
