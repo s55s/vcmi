@@ -433,6 +433,15 @@ void CPlayerInterface::heroKilled(const CGHeroInstance* hero)
 		adventureInt->selection = nullptr;
 }
 
+void CPlayerInterface::heroVisit(const CGHeroInstance * visitor, const CGObjectInstance * visitedObj, bool start)
+{
+	EVENT_HANDLER_CALLED_BY_CLIENT;
+	if(start && !visitedObj->sounds.visit.empty())
+	{
+		CCS->soundh->playSound(boost::str(boost::format("%s.wav") % visitedObj->sounds.visit));
+	}
+}
+
 void CPlayerInterface::heroCreated(const CGHeroInstance * hero)
 {
 	EVENT_HANDLER_CALLED_BY_CLIENT;
@@ -2865,7 +2874,7 @@ void CPlayerInterface::updateAmbientSounds()
 		//TODO handling for static objects (Volcanos) and special terrains
 		auto tt = cb->getTile(tile);
 		auto obj = tt->topVisitableObj(pos == tile);
-		if(obj && !obj->ambientSound.empty())
+		if(obj && !obj->sounds.ambient.empty())
 			updateObjects(obj->id);
 	}
 
@@ -2893,7 +2902,7 @@ void CPlayerInterface::updateAmbientSounds()
 			if(pair.first == ObjectInstanceID())
 				channel = CCS->soundh->playSound(soundBase::LOOPOCEA, -1);
 			else
-				channel = CCS->soundh->playSound(boost::str(boost::format("%s.wav") % cb->getObj(pair.first)->ambientSound), -1);
+				channel = CCS->soundh->playSound(boost::str(boost::format("%s.wav") % cb->getObj(pair.first)->sounds.ambient), -1);
 
 			CCS->soundh->setChannelVolume(channel, pair.second);
 			CCS->soundh->ambientChannels.insert(std::make_pair(pair.first, channel));

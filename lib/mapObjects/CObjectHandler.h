@@ -101,6 +101,18 @@ public:
 	}
 };
 
+struct SObjectSounds
+{
+	std::string ambient;
+	std::string visit;
+
+	template <typename Handler> void serialize(Handler &h, const int version)
+	{
+		h & ambient;
+		h & visit;
+	}
+};
+
 class DLL_LINKAGE CGObjectInstance : public IObjectInterface
 {
 public:
@@ -123,7 +135,7 @@ public:
 	std::string typeName;
 	std::string subTypeName;
 
-	std::string ambientSound;
+	SObjectSounds sounds;
 
 
 	CGObjectInstance();
@@ -188,7 +200,7 @@ public:
 		h & pos & ID & subID & id & tempOwner & blockVisit & appearance;
 		if(version >= 762)
 		{
-			h & ambientSound;
+			h & sounds;
 		}
 		//definfo is handled by map serializer
 	}

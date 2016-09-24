@@ -205,7 +205,9 @@ CObjectClassesHandler::ObjectContainter * CObjectClassesHandler::loadFromJson(co
 	}
 
 	if(!json["sounds"]["ambient"].String().empty())
-		obj->ambientSound = json["sounds"]["ambient"].String();
+		obj->sounds.ambient = json["sounds"]["ambient"].String();
+	if(!json["sounds"]["visit"].String().empty())
+		obj->sounds.visit = json["sounds"]["visit"].String();
 
 	return obj;
 }
@@ -364,7 +366,8 @@ std::string CObjectClassesHandler::getObjectHandlerName(si32 type) const
 
 void AObjectTypeHandler::setAmbient(CGObjectInstance * obj) const
 {
-	obj->ambientSound = ambientSound;
+	obj->sounds.ambient = sounds.ambient;
+	obj->sounds.visit = sounds.visit;
 }
 
 void AObjectTypeHandler::setType(si32 type, si32 subtype)
@@ -419,7 +422,9 @@ void AObjectTypeHandler::init(const JsonNode & input, boost::optional<std::strin
 
 
 	if(!input["sounds"]["ambient"].String().empty())
-		ambientSound = input["sounds"]["ambient"].String();
+		sounds.ambient = input["sounds"]["ambient"].String();
+	if(!input["sounds"]["visit"].String().empty())
+		sounds.visit = input["sounds"]["visit"].String();
 
 	initTypeData(input);
 }
