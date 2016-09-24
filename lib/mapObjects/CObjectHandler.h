@@ -123,7 +123,7 @@ public:
 	std::string typeName;
 	std::string subTypeName;
 
-	int ambientSound;
+	std::string ambientSound;
 
 
 	CGObjectInstance();

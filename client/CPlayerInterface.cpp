@@ -2865,7 +2865,7 @@ void CPlayerInterface::updateAmbientSounds()
 		//TODO handling for static objects (Volcanos) and special terrains
 		auto tt = cb->getTile(tile);
 		auto obj = tt->topVisitableObj(pos == tile);
-		if(obj && obj->ambientSound != soundBase::invalid)
+		if(obj && !obj->ambientSound.empty())
 			updateObjects(obj->id);
 	}
 
@@ -2889,13 +2889,12 @@ void CPlayerInterface::updateAmbientSounds()
 	{
 		if(!vstd::contains(CCS->soundh->ambientChannels, pair.first))
 		{
-			soundBase::soundID sound;
+			int channel;
 			if(pair.first == ObjectInstanceID())
-				sound = soundBase::LOOPOCEA;
+				channel = CCS->soundh->playSound(soundBase::LOOPOCEA, -1);
 			else
-				sound = static_cast<soundBase::soundID>(cb->getObj(pair.first)->ambientSound);
+				channel = CCS->soundh->playSound(boost::str(boost::format("%s.wav") % cb->getObj(pair.first)->ambientSound), -1);
 
-			auto channel = CCS->soundh->playSound(sound, -1);
 			CCS->soundh->setChannelVolume(channel, pair.second);
 			CCS->soundh->ambientChannels.insert(std::make_pair(pair.first, channel));
 			logGlobal->warnStream() << "New channel " << channel;

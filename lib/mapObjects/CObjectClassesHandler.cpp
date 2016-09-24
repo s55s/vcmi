@@ -204,11 +204,8 @@ CObjectClassesHandler::ObjectContainter * CObjectClassesHandler::loadFromJson(co
 		loadObjectEntry(entry.first, entry.second, obj);
 	}
 
-	int ambientId = vstd::find_pos(soundBase::stringsList(), json["sounds"]["ambient"].String());
-	if(ambientId != -1)
-		obj->ambientSound = ambientId;
-	else
-		obj->ambientSound = soundBase::invalid;
+	if(!json["sounds"]["ambient"].String().empty())
+		obj->ambientSound = json["sounds"]["ambient"].String();
 
 	return obj;
 }
@@ -420,12 +417,9 @@ void AObjectTypeHandler::init(const JsonNode & input, boost::optional<std::strin
 	else
 		objectName.reset(input["name"].String());
 
-	int ambientId = vstd::find_pos(soundBase::stringsList(), input["sounds"]["ambient"].String());
-	if(ambientId != -1)
-		ambientSound = ambientId;
-	else
-		ambientSound = soundBase::invalid;
 
+	if(!input["sounds"]["ambient"].String().empty())
+		ambientSound = input["sounds"]["ambient"].String();
 
 	initTypeData(input);
 }

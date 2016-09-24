@@ -105,7 +105,7 @@ class DLL_LINKAGE AObjectTypeHandler : public boost::noncopyable
 
 	std::vector<ObjectTemplate> templates;
 
-	int ambientSound;
+	std::string ambientSound;
 protected:
 	void preInitObject(CGObjectInstance * obj) const;
 	virtual bool objectFilter(const CGObjectInstance *, const ObjectTemplate &) const;
@@ -190,7 +190,7 @@ class DLL_LINKAGE CObjectClassesHandler : public IHandlerBase
 		std::map<si32, TObjectTypeHandler> subObjects;
 		std::map<std::string, si32> subIds;//full id from core scope -> subtype
 
-		int ambientSound;
+		std::string ambientSound;
 
 		template <typename Handler> void serialize(Handler &h, const int version)
 		{
