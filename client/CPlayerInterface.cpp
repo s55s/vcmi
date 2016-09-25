@@ -2884,6 +2884,7 @@ void CPlayerInterface::updateAmbientSounds()
 		if(!vstd::contains(currentObjects, pair.first))
 		{
 			CCS->soundh->stopSound(pair.second);
+			CCS->soundh->setChannelVolume(pair.second, 100);
 			CCS->soundh->ambientChannels -= pair;
 			logGlobal->warnStream() << "Stop channel " << pair.second;
 		}
