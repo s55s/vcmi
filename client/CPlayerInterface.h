@@ -266,6 +266,7 @@ public:
 
 	// Ambient sounds
 	void updateAmbientSounds();
+	void stopAmbientSounds();
 
 	///returns true if all events are processed internally
 	bool capturedAllEvents();

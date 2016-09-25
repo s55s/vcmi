@@ -1372,6 +1372,7 @@ void CAdvMapInt::endingTurn()
 		LOCPLINT->cingconsole->deactivate();
 	LOCPLINT->makingTurn = false;
 	LOCPLINT->cb->endTurn();
+	LOCPLINT->stopAmbientSounds();
 }
 
 const CGObjectInstance* CAdvMapInt::getActiveObject(const int3 &mapPos)
