@@ -2871,11 +2871,42 @@ void CPlayerInterface::updateAmbientSounds()
 		if(CGI->mh->map->isCoastalTile(tile))
 			updateObjects(ObjectInstanceID());
 
-		//TODO handling for static objects (Volcanos) and special terrains
 		auto tt = cb->getTile(tile);
 		auto obj = tt->topVisitableObj(pos == tile);
-		if(obj && !obj->sounds.ambient.empty())
+		if(obj && !obj->sounds.ambient.empty()) // visitable objects
 			updateObjects(obj->id);
+		if(tt->blockingObjects.size()) // static objects: Volcanos
+		{
+			for (const CGObjectInstance * obj : tt->blockingObjects)
+			{
+				if (obj->sounds.ambient.size())
+					updateObjects(obj->id);
+			}
+		}
+		// for nos steal a bit from CGameState::battleGetBattlefieldType which is super slow
+		// Also sound is for every special terrain on tile and not just one on top.
+		for(auto &obj : CGI->mh->map->objects)
+		{
+			//look only for objects covering given tile
+			if( !obj || obj->pos.z != tile.z || !obj->coveringAt(tile.x, tile.y))
+				continue;
+
+			switch(obj->ID)
+			{
+			case Obj::CLOVER_FIELD:
+			case Obj::CURSED_GROUND1: case Obj::CURSED_GROUND2:
+			case Obj::EVIL_FOG:
+			case Obj::FAVORABLE_WINDS:
+			case Obj::FIERY_FIELDS:
+			case Obj::HOLY_GROUNDS:
+			case Obj::LUCID_POOLS:
+			case Obj::MAGIC_CLOUDS:
+			case Obj::MAGIC_PLAINS1: case Obj::MAGIC_PLAINS2:
+			case Obj::ROCKLANDS:
+				updateObjects(obj->id);
+				break;
+			}
+		}
 	}
 
 	auto channels = CCS->soundh->ambientChannels;
