@@ -3,7 +3,10 @@
 		"index" :17,
 		"handler": "dwelling",
 		"base" : {
-			"sounds" : { "ambient" : "LOOPSWOR" },
+			"sounds" : {
+				"ambient" : "LOOPSWOR",
+				"visit" : "MILITARY"
+			},
 			"base" : {
 				"visitableFrom" : [ "---", "+++", "+++" ],
 				"mask" : [ "VVV", "VBB", "VAA" ]

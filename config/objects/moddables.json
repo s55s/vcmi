@@ -8,6 +8,9 @@
 		"index" :5, 
 		"handler": "artifact",
 		"base" : {
+			"sounds" : {
+				"visit" : "TREASURE"
+			},
 			"base" : {
 				"visitableFrom" : [ "+++", "+-+", "+++" ],
 				"mask" : [ "VV", "VA"]
@@ -111,6 +114,11 @@
 	"borderGuard" : {
 		"index" :9,
 		"handler": "borderGuard",
+		"base" : {
+			"sounds" : {
+				"visit" : "CAVEHEAD"
+			}
+		},
 		"types" : {
 			"lblue" :  { "index" : 0 },
 			"green" :  { "index" : 1 },
@@ -125,6 +133,11 @@
 	"borderGate" : {
 		"index" :212,
 		"handler": "borderGate",
+		"base" : {
+			"sounds" : {
+				"visit" : "CAVEHEAD"
+			}
+		},
 		"types" : {
 			"lblue" :  { "index" : 0 },
 			"green" :  { "index" : 1 },
@@ -139,6 +152,11 @@
 	"keymasterTent" : {
 		"index" :10,
 		"handler": "keymaster",
+		"base" : {
+			"sounds" : {
+				"visit" : "CAVEHEAD"
+			}
+		},
 		"types" : {
 			"lblue" :  { "index" : 0 },
 			"green" :  { "index" : 1 },
@@ -158,6 +176,9 @@
 			"base" : {
 				"visitableFrom" : [ "---", "+++", "+++" ],
 				"mask" : [ "VVV", "VVV", "VAV" ]
+			},
+			"sounds" : {
+				"visit" : "QUEST"
 			}
 		},
 		"types" : {
@@ -171,6 +192,11 @@
 	"cartographer" : {
 		"index" :13,
 		"handler": "cartographer",
+		"base" : {
+			"sounds" : {
+				"visit" : "LIGHTHOUSE"
+			}
+		},
 		"types" : {
 			"water" : { "index" : 0, "rmg" : { "zoneLimit" : 1,  "value" : 5000, "rarity" : 20 } },
 			"land" : { "index" : 1, "rmg" : { "zoneLimit" : 1,  "value" : 10000, "rarity" : 20 } },
@@ -182,6 +208,11 @@
 	"mine" : {
 		"index" :53,
 		"handler": "mine",
+		"base" : {
+			"sounds" : {
+				"visit" : "FLAGMINE"
+			}
+		},
 		"types" : {
 			"sawmill" :       { "index" : 0, "rmg" : { "value" : 1500 }, "sounds" : { "ambient" : "LOOPLUMB" }},
 			"alchemistLab" :  { "index" : 1, "rmg" : { "value" : 3500 }, "sounds" : { "ambient" : "LOOPSTAR" }},
@@ -190,7 +221,7 @@
 			"crystalCavern" : { "index" : 4, "rmg" : { "value" : 3500 }, "sounds" : { "ambient" : "LOOPCRYS" }},
 			"gemPond" :       { "index" : 5, "rmg" : { "value" : 3500 }, "sounds" : { "ambient" : "LOOPGEMP" }},
 			"goldMine" :      { "index" : 6, "rmg" : { "value" : 7000 }, "sounds" : { "ambient" : "LOOPMINE" }},
-			"abandoned" :	  { "index" : 7, "sounds" : { "ambient" : "LOOPCAVE" }}
+			"abandoned" :	  { "index" : 7, "sounds" : { "ambient" : "LOOPCAVE", "visit" : "MYSTERY" }}
 		}
 	},
 	"abandonedMine" : {
@@ -207,6 +238,11 @@
 	"garrisonHorizontal": { 
 		"index" :33, 
 		"handler": "garrison",
+		"base" : {
+			"sounds" : {
+				"visit" : "MILITARY"
+			}
+		},
 		"types":{
 			"normal":{"index": 0, "sounds" : { "ambient" : "LOOPSWAR" }},
 			"antiMagic":{"index": 1, "sounds" : { "ambient" : "LOOPMAGI" }}
@@ -215,6 +251,11 @@
 	"garrisonVertical": { 
 		"index" :219, 
 		"handler": "garrison",
+		"base" : {
+			"sounds" : {
+				"visit" : "MILITARY"
+			}
+		},
 		"types":{
 			"normal":{"index": 0, "sounds" : { "ambient" : "LOOPSWAR" }},
 			"antiMagic":{"index": 1, "sounds" : { "ambient" : "LOOPMAGI" }}			
@@ -226,7 +267,10 @@
 		"index" :43,
 		"handler": "monolith",
 		"base" : {
-			"sounds" : { "ambient" : "LOOPMON1" }
+			"sounds" : {
+				"ambient" : "LOOPMON1",
+				"visit" : "TELPTOUT"
+			}
 		},
 		"types" : {
 			"monolith1" : { "index" : 0 },
@@ -260,7 +304,10 @@
 		"index" :45,
 		"handler": "monolith",
 		"base" : {
-			"sounds" : { "ambient" : "LOOPMON2" }
+			"sounds" : {
+				"ambient" : "LOOPMON2",
+				"visit" : "TELPTOUT"
+			}
 		},
 		"types" : {
 			"monolith1" : { "index" : 0 },

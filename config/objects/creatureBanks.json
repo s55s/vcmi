@@ -2,6 +2,11 @@
 	"creatureBank" : {
 		"index" :16,
 		"handler": "bank",
+		"base" : {
+			"sounds" : {
+				"visit" : "ROGUE"
+			}
+		},
 		"types" : {
 			"cyclopsStockpile" :
 			{
@@ -792,12 +797,17 @@
 	"crypt" : {
 		"index" :84,
 		"handler": "bank",
+		"base" : {
+			"sounds" : {
+				"ambient" : "LOOPDEAD",
+				"visit" : "GRAVEYARD"
+			}
+		},
 		"types" : {
 			"crypt" : {
 				"index" : 0,
 				"resetDuration" : 0,
 				"name" : "Crypt",
-				"sounds" : { "ambient" : "LOOPDEAD" },
 				"rmg" : {
 					"value"		: 1000,
 					"rarity"	: 100
@@ -882,12 +892,17 @@
 	"dragonUtopia" : {
 		"index" :25,
 		"handler": "bank",
+		"base" : {
+			"sounds" : {
+				"ambient" : "LOOPDRAG",
+				"visit" : "DRAGON"
+			}
+		},
 		"types" : {
 			"dragonUtopia" : {
 				"index" : 0,
 				"resetDuration" : 0,
 				"name" : "Dragon Utopia",
-				"sounds" : { "ambient" : "LOOPDRAG" },
 				"rmg" : {
 					"value"		: 10000,
 					"rarity"	: 100
@@ -992,6 +1007,11 @@
 	"pyramid" : {
 		"index" :63,
 		"handler": "bank",
+		"base" : {
+			"sounds" : {
+				"visit" : "MYSTERY"
+			}
+		},
 		"types" : {
 			"pyramid" : {
 				"index" : 0,

@@ -5,7 +5,10 @@
 		"index" : 48,
 		"handler": "magicSpring",
 		"base" : {
-			"sounds" : { "ambient" : "LOOPFOUN" }
+			"sounds" : {
+				"ambient" : "LOOPFOUN",
+				"visit" : "FAERIE"
+			}
 		},
 		"types" : {
 			"object" : {
@@ -24,7 +27,10 @@
 		"index" : 55,
 		"handler": "oncePerWeek",
 		"base" : {
-			"sounds" : { "ambient" : "LOOPLEPR" }
+			"sounds" : {
+				"ambient" : "LOOPLEPR",
+				"visit" : "EXPERNCE"
+			}
 		},
 		"types" : {
 			"object" : {
@@ -40,7 +46,10 @@
 		"index" : 112,
 		"handler": "oncePerWeek",
 		"base" : {
-			"sounds" : { "ambient" : "LOOPWIND" }
+			"sounds" : {
+				"ambient" : "LOOPWIND",
+				"visit" : "GENIE"
+			}
 		},
 		"types" : {
 			"object" : {
@@ -56,7 +65,10 @@
 		"index" : 109,
 		"handler": "oncePerWeek",
 		"base" : {
-			"sounds" : { "ambient" : "LOOPMILL" }
+			"sounds" : {
+				"ambient" : "LOOPMILL",
+				"visit" : "GENIE"
+			}
 		},
 		"types" : {
 			"object" : {
@@ -72,6 +84,11 @@
 	"leanTo" :{
 		"index" : 39,
 		"handler": "onceVisitable",
+		"base" : {
+			"sounds" : {
+				"visit" : "GENIE"
+			}
+		},
 		"types" : {
 			"object" : {
 				"index" : 0,
@@ -85,6 +102,11 @@
 	"corpse" :{
 		"index" : 22,
 		"handler": "onceVisitable",
+		"base" : {
+			"sounds" : {
+				"visit" : "MYSTERY"
+			}
+		},
 		"types" : {
 			"object" : {
 				"index" : 0,
@@ -98,6 +120,11 @@
 	"wagon" :{
 		"index" : 105,
 		"handler": "onceVisitable",
+		"base" : {
+			"sounds" : {
+				"visit" : "GENIE"
+			}
+		},
 		"types" : {
 			"object" : {
 				"index" : 0,
@@ -111,6 +138,11 @@
 	"warriorTomb" : {
 		"index" : 108,
 		"handler": "onceVisitable",
+		"base" : {
+			"sounds" : {
+				"visit" : "GRAVEYARD"
+			}
+		},
 		"types" : {
 			"object" : {
 				"index" : 0,
@@ -126,7 +158,10 @@
 		"index" : 12,
 		"handler": "pickable",
 		"base" : {
-			"sounds" : { "ambient" : "LOOPCAMP" }
+			"sounds" : {
+				"ambient" : "LOOPCAMP",
+				"visit" : "EXPERNCE"
+			}
 		},
 		"types" : {
 			"object" : {
@@ -141,6 +176,11 @@
 	"flotsam" :{
 		"index" : 29,
 		"handler": "pickable",
+		"base" : {
+			"sounds" : {
+				"visit" : "GENIE"
+			}
+		},
 		"types" : {
 			"object" : {
 				"index" : 0,
@@ -154,6 +194,11 @@
 	"seaChest" :{
 		"index" : 82,
 		"handler": "pickable",
+		"base" : {
+			"sounds" : {
+				"visit" : "CHEST"
+			}
+		},
 		"types" : {
 			"object" : {
 				"index" : 0,
@@ -167,6 +212,11 @@
 	"shipwreckSurvivor" : {
 		"index" : 86,
 		"handler": "pickable",
+		"base" : {
+			"sounds" : {
+				"visit" : "TREASURE"
+			}
+		},
 		"types" : {
 			"object" : {
 				"index" : 0,
@@ -180,6 +230,11 @@
 	"treasureChest" : {
 		"index" : 101,
 		"handler": "pickable",
+		"base" : {
+			"sounds" : {
+				"visit" : "CHEST"
+			}
+		},
 		"types" : {
 			"object" : {
 				"index" : 0,
@@ -195,7 +250,10 @@
 		"index" : 4,
 		"handler": "oncePerHero",
 		"base" : {
-			"sounds" : { "ambient" : "LOOPAREN" }
+			"sounds" : {
+				"ambient" : "LOOPAREN",
+				"visit" : "NOMAD"
+			}
 		},
 		"types" : {
 			"object" : {
@@ -211,7 +269,10 @@
 		"index" : 23,
 		"handler": "oncePerHero",
 		"base" : {
-			"sounds" : { "ambient" : "LOOPSWAR" }
+			"sounds" : {
+				"ambient" : "LOOPSWAR",
+				"visit" : "NOMAD"
+			}
 		},
 		"types" : {
 			"object" : {
@@ -227,7 +288,10 @@
 		"index" : 32,
 		"handler": "oncePerHero",
 		"base" : {
-			"sounds" : { "ambient" : "LOOPGARD" }
+			"sounds" : {
+				"ambient" : "LOOPGARD",
+				"visit" : "GETPROTECTION"
+			}
 		},
 		"types" : {
 			"object" : {
@@ -242,6 +306,11 @@
 	"libraryOfEnlightenment" : {
 		"index" : 41,
 		"handler": "oncePerHero",
+		"base" : {
+			"sounds" : {
+				"visit" : "GAZEBO"
+			}
+		},
 		"types" : {
 			"object" : {
 				"index" : 0,
@@ -256,7 +325,10 @@
 		"index" : 51,
 		"handler": "oncePerHero",
 		"base" : {
-			"sounds" : { "ambient" : "LOOPMERC" }
+			"sounds" : {
+				"ambient" : "LOOPMERC",
+				"visit" : "NOMAD"
+			}
 		},
 		"types" : {
 			"object" : {
@@ -272,7 +344,10 @@
 		"index" : 61,
 		"handler": "oncePerHero",
 		"base" : {
-			"sounds" : { "ambient" : "LOOPSTAR" }
+			"sounds" : {
+				"ambient" : "LOOPSTAR",
+				"visit" : "GAZEBO"
+			}
 		},
 		"types" : {
 			"object" : {
@@ -287,6 +362,11 @@
 	"treeOfKnowledge" : {
 		"index" : 102,
 		"handler": "oncePerHero",
+		"base" : {
+			"sounds" : {
+				"visit" : "GAZEBO"
+			}
+		},
 		"types" : {
 			"object" : {
 				"index" : 0,
@@ -302,7 +382,10 @@
 		"index" : 47,
 		"handler": "oncePerHero",
 		"base" : {
-			"sounds" : { "ambient" : "LOOPMAGI" }
+			"sounds" : {
+				"ambient" : "LOOPMAGI",
+				"visit" : "FAERIE"
+			}
 		},
 		"types" : {
 			"object" : {
@@ -318,7 +401,10 @@
 		"index" : 107,
 		"handler": "oncePerHero",
 		"base" : {
-			"sounds" : { "ambient" : "LOOPSWAR" }
+			"sounds" : {
+				"ambient" : "LOOPSWAR",
+				"visit" : "MILITARY"
+			}
 		},
 		"types" : {
 			"object" : {
@@ -334,7 +420,10 @@
 		"index" : 100,
 		"handler": "oncePerHero",
 		"base" : {
-			"sounds" : { "ambient" : "LOOPLEAR" }
+			"sounds" : {
+				"ambient" : "LOOPLEAR",
+				"visit" : "GAZEBO" 
+			}
 		},
 		"types" : {
 			"object" : { 
@@ -352,7 +441,10 @@
 		"index" : 11,
 		"handler": "bonusingObject",
 		"base" : {
-			"sounds" : { "ambient" : "LOOPBUOY" }
+			"sounds" : {
+				"ambient" : "LOOPBUOY",
+				"visit" : "MORALE"
+			}
 		},
 		"types" : {
 			"object" : {
@@ -367,6 +459,11 @@
 	"swanPond" : {
 		"index" : 14,
 		"handler": "bonusingObject",
+		"base" : {
+			"sounds" : {
+				"visit" : "LUCK"
+			}
+		},
 		"types" : {
 			"object" : {
 				"index" : 0,
@@ -382,7 +479,10 @@
 		"index" : 28,
 		"handler": "bonusingObject",
 		"base" : {
-			"sounds" : { "ambient" : "LOOPFAER" }
+			"sounds" : {
+				"ambient" : "LOOPFAER",
+				"visit" : "LUCK"
+			}
 		},
 		"types" : {
 			"object" : {
@@ -399,7 +499,10 @@
 		"index" : 30,
 		"handler": "bonusingObject",
 		"base" : {
-			"sounds" : { "ambient" : "LOOPFOUN" }
+			"sounds" : {
+				"ambient" : "LOOPFOUN",
+				"visit" : "LUCK"
+			}
 		},
 		"types" : {
 			"object" : {
@@ -416,7 +519,10 @@
 		"index" : 31,
 		"handler": "bonusingObject",
 		"base" : {
-			"sounds" : { "ambient" : "LOOPFALL" }
+			"sounds" : {
+				"ambient" : "LOOPFALL",
+				"visit" : "MORALE"
+			}
 		},
 		"types" : {
 			"object" : {
@@ -432,6 +538,11 @@
 	"idolOfFortune" : {
 		"index" : 38,
 		"handler": "bonusingObject",
+		"base" : {
+			"sounds" : {
+				"visit" : "LUCK"
+			}
+		},
 		"types" : {
 			"object" : {
 				"index" : 0,
@@ -449,6 +560,11 @@
 	"mermaids" : {
 		"index" : 52,
 		"handler": "bonusingObject",
+		"base" : {
+			"sounds" : {
+				"visit" : "LUCK"
+			}
+		},
 		"types" : {
 			"object" : {
 				"index" : 0,
@@ -462,6 +578,11 @@
 	"oasis" : {
 		"index" : 56,
 		"handler": "bonusingObject",
+		"base" : {
+			"sounds" : {
+				"visit" : "MORALE"
+			}
+		},
 		"types" : {
 			"object" : {
 				"index" : 0,
@@ -477,7 +598,10 @@
 		"index" : 94,
 		"handler": "bonusingObject",
 		"base" : {
-			"sounds" : { "ambient" : "LOOPHORS" }
+			"sounds" : {
+				"ambient" : "LOOPHORS",
+				"visit" : "STORE"
+			}
 		},
 		"types" : {
 			"object" : {
@@ -494,7 +618,10 @@
 		"index" : 96,
 		"handler": "bonusingObject",
 		"base" : {
-			"sounds" : { "ambient" : "LOOPSANC" }
+			"sounds" : {
+				"ambient" : "LOOPSANC",
+				"visit" : "TEMPLE"
+			}
 		},
 		"types" : {
 			"object" : {
@@ -511,7 +638,10 @@
 		"index" : 64,
 		"handler": "bonusingObject",
 		"base" : {
-			"sounds" : { "ambient" : "LOOPFLAG" }
+			"sounds" : {
+				"ambient" : "LOOPFLAG",
+				"visit" : "MORALE"
+			}
 		},
 		"types" : {
 			"object" : {
@@ -527,6 +657,11 @@
 	"wateringHole" : {//waters
 		"index" : 110,
 		"handler": "bonusingObject",
+		"base" : {
+			"sounds" : {
+				"visit" : "MORALE"
+			}
+		},
 		"types" : {
 			"object" : {
 				"index" : 0,

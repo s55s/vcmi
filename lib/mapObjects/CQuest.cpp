@@ -31,7 +31,7 @@ CQuest::CQuest()
 }
 
 ///helpers
-static void showInfoDialog(const PlayerColor playerID, const ui32 txtID, const ui16 soundID)
+static void showInfoDialog(const PlayerColor playerID, const ui32 txtID, const ui16 soundID = 0)
 {
 	InfoWindow iw;
 	iw.soundID = soundID;
@@ -40,7 +40,7 @@ static void showInfoDialog(const PlayerColor playerID, const ui32 txtID, const u
 	IObjectInterface::cb->sendAndApply(&iw);
 }
 
-static void showInfoDialog(const CGHeroInstance* h, const ui32 txtID, const ui16 soundID)
+static void showInfoDialog(const CGHeroInstance* h, const ui32 txtID, const ui16 soundID = 0)
 {
 	const PlayerColor playerID = h->getOwner();
 	showInfoDialog(playerID,txtID,soundID);
@@ -594,7 +594,6 @@ void CGSeerHut::onHeroVisit(const CGHeroInstance * h) const
 		{
 			BlockingDialog bd (true, false);
 			bd.player = h->getOwner();
-			bd.soundID = soundBase::QUEST;
 
 			getCompletionText (bd.text, bd.components, isCustom, h);
 
@@ -824,7 +823,7 @@ void CGKeymasterTent::onHeroVisit( const CGHeroInstance * h ) const
 	}
 	else
 		txt_id=20;
-	showInfoDialog(h,txt_id,soundBase::CAVEHEAD);
+	showInfoDialog(h, txt_id);
 }
 
 void CGBorderGuard::initObj(CRandomGenerator & rand)
@@ -855,13 +854,12 @@ void CGBorderGuard::onHeroVisit(const CGHeroInstance * h) const
 	{
 		BlockingDialog bd (true, false);
 		bd.player = h->getOwner();
-		bd.soundID = soundBase::QUEST;
 		bd.text.addTxt (MetaString::ADVOB_TXT, 17);
 		cb->showBlockingDialog (&bd);
 	}
 	else
 	{
-		showInfoDialog(h,18,soundBase::CAVEHEAD);
+		showInfoDialog(h, 18);
 
 		AddQuest aq;
 		aq.quest = QuestInfo (quest, this, visitablePos());

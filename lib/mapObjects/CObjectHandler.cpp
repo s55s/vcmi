@@ -53,7 +53,7 @@ static void showInfoDialog(const PlayerColor playerID, const ui32 txtID, const u
 	showInfoDialog(playerID,txtID,soundID);
 }*/
 
-static void showInfoDialog(const CGHeroInstance* h, const ui32 txtID, const ui16 soundID)
+static void showInfoDialog(const CGHeroInstance* h, const ui32 txtID, const ui16 soundID = 0)
 {
 	const PlayerColor playerID = h->getOwner();
 	showInfoDialog(playerID,txtID,soundID);
@@ -294,7 +294,7 @@ void CGObjectInstance::onHeroVisit( const CGHeroInstance * h ) const
 	case Obj::SANCTUARY:
 		{
 			//You enter the sanctuary and immediately feel as if a great weight has been lifted off your shoulders.  You feel safe here.
-			showInfoDialog(h,114,soundBase::GETPROTECTION);
+			showInfoDialog(h, 114);
 		}
 		break;
 	case Obj::TAVERN:
