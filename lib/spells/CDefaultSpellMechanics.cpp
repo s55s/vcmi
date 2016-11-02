@@ -483,8 +483,8 @@ void DefaultSpellMechanics::defaultTimedEffect(const SpellCastEnvironment * env,
 	{
 		si32 maxDuration = 0;
 
-		owner->getEffects(sse.effect, parameters.effectLevel, false, duration, maxDuration);
-		owner->getEffects(sse.cumulativeEffects, parameters.effectLevel, true, duration, maxDuration);
+		owner->getEffects(sse.effect, parameters.effectLevel, false, duration, &maxDuration);
+		owner->getEffects(sse.cumulativeEffects, parameters.effectLevel, true, duration, &maxDuration);
 
 		//if all spell effects have special duration, use it later for special bonuses
 		duration = maxDuration;

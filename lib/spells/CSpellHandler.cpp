@@ -369,7 +369,7 @@ void CSpell::getEffects(std::vector<Bonus> & lst, const int level) const
 	}
 }
 
-void CSpell::getEffects(std::vector<Bonus> & lst, const int level, const bool cumulative, const si32 duration, si32 & maxDuration) const
+void CSpell::getEffects(std::vector<Bonus> & lst, const int level, const bool cumulative, const si32 duration, boost::optional<si32 *> maxDuration/* = boost::none*/) const
 {
 	if(level < 0 || level >= GameConstants::SPELL_SCHOOL_LEVELS)
 	{
@@ -396,7 +396,8 @@ void CSpell::getEffects(std::vector<Bonus> & lst, const int level, const bool cu
 		//use configured duration if present
 		if(nb.turnsRemain == 0)
 			nb.turnsRemain = duration;
-		vstd::amax(maxDuration, nb.turnsRemain);
+		if(maxDuration)
+			vstd::amax(*(maxDuration.get()), nb.turnsRemain);
 
 		lst.push_back(nb);
 	}

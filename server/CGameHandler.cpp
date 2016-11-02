@@ -4392,12 +4392,14 @@ void CGameHandler::stackAppearTrigger(const CStack *st)
 		else
 			sse.stacks.push_back (st->ID);
 
-		Bonus pseudoBonus;
-		pseudoBonus.sid = b->subtype;
-		pseudoBonus.val = ((val > 3) ?  (val - 3) : val);
-		pseudoBonus.turnsRemain = 50;
-		st->stackEffectToFeature(sse.effect, pseudoBonus);
-		if (sse.effect.size())
+		const CSpell * sp = SpellID(b->subtype).toSpell();
+		const int level = ((val > 3) ?  (val - 3) : val);
+
+		sp->getEffects(sse.effect, level, false, 50);
+		//this makes effect accumulate for at most 50 turns by default, but effect may be permanent and last till the end of battle
+		sp->getEffects(sse.cumulativeEffects, level, true, 50);
+
+		if (!sse.effect.empty() || !sse.cumulativeEffects.empty())
 			sendAndApply(&sse);
 	}
 }

@@ -234,7 +234,7 @@ public:
 	bool hasEffects() const;
 	void getEffects(std::vector<Bonus> &lst, const int level) const;//deprecated
 
-	void getEffects(std::vector<Bonus> & lst, const int level, const bool cumulative, const si32 duration, si32 & maxDuration) const;
+	void getEffects(std::vector<Bonus> & lst, const int level, const bool cumulative, const si32 duration, boost::optional<si32 *> maxDuration = boost::none) const;
 
 	///calculate spell damage on stack taking caster`s secondary skills and affectedCreature`s bonuses into account
 	ui32 calculateDamage(const ISpellCaster * caster, const CStack * affectedCreature, int spellSchoolLevel, int usedSpellPower) const;
