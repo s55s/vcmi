@@ -529,10 +529,20 @@ void DefaultSpellMechanics::defaultTimedEffect(const SpellCastEnvironment * env,
 							power = 1;
 						break;
 					}
-					Bonus specialBonus(sse.effect.back());
-					specialBonus.val = power; //it doesn't necessarily make sense for some spells, use it wisely
-					specialBonus.turnsRemain = duration;
-					sse.uniqueBonuses.push_back (std::pair<ui32,Bonus> (affected->ID, specialBonus)); //additional premy to given effect
+					for(const Bonus & b : sse.effect)
+					{
+						Bonus specialBonus(b);
+						specialBonus.val = power; //it doesn't necessarily make sense for some spells, use it wisely
+						specialBonus.turnsRemain = duration;
+						sse.uniqueBonuses.push_back(std::pair<ui32, Bonus> (affected->ID, specialBonus)); //additional premy to given effect
+					}
+					for(const Bonus & b : sse.cumulativeEffects)
+					{
+						Bonus specialBonus(b);
+						specialBonus.val = power; //it doesn't necessarily make sense for some spells, use it wisely
+						specialBonus.turnsRemain = duration;
+						sse.cumulativeUniqueBonuses.push_back(std::pair<ui32, Bonus> (affected->ID, specialBonus)); //additional premy to given effect
+					}
 				}
 				break;
 				case 1: //only Coronius as yet
@@ -545,7 +555,7 @@ void DefaultSpellMechanics::defaultTimedEffect(const SpellCastEnvironment * env,
 				break;
 			}
 		}
-		if (parameters.casterHero && parameters.casterHero->hasBonusOfType(Bonus::SPECIAL_BLESS_DAMAGE, owner->id)) //TODO: better handling of bonus percentages
+		if(parameters.casterHero && parameters.casterHero->hasBonusOfType(Bonus::SPECIAL_BLESS_DAMAGE, owner->id)) //TODO: better handling of bonus percentages
 		{
 			int damagePercent = parameters.casterHero->level * parameters.casterHero->valOfBonuses(Bonus::SPECIAL_BLESS_DAMAGE, owner->id.toEnum()) / tier;
 			Bonus specialBonus(Bonus::N_TURNS, Bonus::CREATURE_DAMAGE, Bonus::SPELL_EFFECT, damagePercent, owner->id, 0, Bonus::PERCENT_TO_ALL);
