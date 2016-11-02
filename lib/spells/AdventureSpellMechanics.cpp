@@ -79,6 +79,7 @@ ESpellCastResult AdventureSpellMechanics::applyAdventureEffects(const SpellCastE
 {
 	if(owner->hasEffects())
 	{
+		//todo: cumulative effects support
 		const int schoolLevel = parameters.caster->getSpellSchoolLevel(owner);
 
 		std::vector<Bonus> bonuses;

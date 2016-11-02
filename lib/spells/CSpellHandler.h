@@ -128,16 +128,35 @@ public:
 		bool clearAffected;
 		std::string range;
 
-		std::vector<Bonus> effects;
-
-		std::vector<std::shared_ptr<Bonus>> effectsTmp; //TODO: this should replace effects
+		std::vector<std::shared_ptr<Bonus>> effects;
+		std::vector<std::shared_ptr<Bonus>> cumulativeEffects;
 
 		LevelInfo();
 		~LevelInfo();
 
 		template <typename Handler> void serialize(Handler &h, const int version)
 		{
-			h & description & cost & power & AIValue & smartTarget & range & effects;
+			h & description & cost & power & AIValue & smartTarget & range;
+
+			if(version >= 762)
+			{
+				h & effects & cumulativeEffects;
+			}
+			else
+			{
+				//all old effects treated as not cumulative, special cases handled by CSpell::serialize
+				std::vector<Bonus> old;
+				h & old;
+
+				if(!h.saving)
+				{
+					effects.clear();
+					cumulativeEffects.clear();
+					for(const Bonus & oldBonus : old)
+						effects.push_back(std::make_shared<Bonus>(oldBonus));
+				}
+			}
+
 			h & clearTarget & clearAffected;
 		}
 	};
@@ -178,7 +197,7 @@ public:
 
 	si32 level;
 
-	std::map<ESpellSchool, bool> school; //todo: use this instead of separate boolean fields
+	std::map<ESpellSchool, bool> school;
 
 	si32 power; //spell's power
 
@@ -213,8 +232,9 @@ public:
 	bool isSpecialSpell() const;
 
 	bool hasEffects() const;
-	void getEffects(std::vector<Bonus> &lst, const int level) const;
+	void getEffects(std::vector<Bonus> &lst, const int level) const;//deprecated
 
+	void getEffects(std::vector<Bonus> & lst, const int level, const bool cumulative, const si32 duration, si32 & maxDuration) const;
 
 	///calculate spell damage on stack taking caster`s secondary skills and affectedCreature`s bonuses into account
 	ui32 calculateDamage(const ISpellCaster * caster, const CStack * affectedCreature, int spellSchoolLevel, int usedSpellPower) const;
@@ -262,6 +282,12 @@ public:
 
 		if(!h.saving)
 			setup();
+		//backward compatibility
+		//can not be added to level structure as level structure does not know spell id
+		if(!h.saving && version < 762)
+			if(id == SpellID::DISRUPTING_RAY || id == SpellID::ACID_BREATH_DEFENSE)
+				for(auto & level : levels)
+					std::swap(level.effects, level.cumulativeEffects);
 	}
 	friend class CSpellHandler;
 	friend class Graphics;

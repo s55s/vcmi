@@ -313,7 +313,7 @@ bool CSpell::isSpecialSpell() const
 
 bool CSpell::hasEffects() const
 {
-	return !levels[0].effects.empty();
+	return !levels[0].effects.empty() || !levels[0].cumulativeEffects.empty();
 }
 
 const std::string & CSpell::getIconImmune() const
@@ -353,7 +353,7 @@ void CSpell::getEffects(std::vector<Bonus> & lst, const int level) const
 		return;
 	}
 
-	const std::vector<Bonus> & effects = levels[level].effects;
+	const auto & effects = levels[level].effects;
 
 	if(effects.empty())
 	{
@@ -363,9 +363,42 @@ void CSpell::getEffects(std::vector<Bonus> & lst, const int level) const
 
 	lst.reserve(lst.size() + effects.size());
 
-	for(const Bonus & b : effects)
+	for(const auto b : effects)
 	{
-		lst.push_back(Bonus(b));
+		lst.push_back(Bonus(*b));
+	}
+}
+
+void CSpell::getEffects(std::vector<Bonus> & lst, const int level, const bool cumulative, const si32 duration, si32 & maxDuration) const
+{
+	if(level < 0 || level >= GameConstants::SPELL_SCHOOL_LEVELS)
+	{
+		logGlobal->errorStream() << __FUNCTION__ << " invalid school level " << level;
+		return;
+	}
+
+	const auto & levelObject = levels.at(level);
+
+	if(levelObject.effects.empty() && levelObject.cumulativeEffects.empty())
+	{
+		logGlobal->errorStream() << __FUNCTION__ << " This spell ("  + name + ") has no effects for level " << level;
+		return;
+	}
+
+	const auto & effects = cumulative ? levelObject.cumulativeEffects : levelObject.effects;
+
+	lst.reserve(lst.size() + effects.size());
+
+	for(const auto b : effects)
+	{
+		Bonus nb(*b);
+
+		//use configured duration if present
+		if(nb.turnsRemain == 0)
+			nb.turnsRemain = duration;
+		vstd::amax(maxDuration, nb.turnsRemain);
+
+		lst.push_back(nb);
 	}
 }
 
@@ -988,9 +1021,25 @@ CSpell * CSpellHandler::loadFromJson(const JsonNode & json, const std::string & 
 			if(usePowerAsValue)
 				b->val = levelPower;
 
-			levelObject.effectsTmp.push_back(b);
+			levelObject.effects.push_back(b);
 		}
 
+		for(const auto & elem : levelNode["cumulativeEffects"].Struct())
+		{
+			const JsonNode & bonusNode = elem.second;
+			auto b = JsonUtils::parseBonus(bonusNode);
+			const bool usePowerAsValue = bonusNode["val"].isNull();
+
+			//TODO: make this work. see CSpellHandler::afterLoadFinalization()
+			//b->sid = spell->id; //for all
+
+			b->source = Bonus::SPELL_EFFECT;//for all
+
+			if(usePowerAsValue)
+				b->val = levelPower;
+
+			levelObject.cumulativeEffects.push_back(b);
+		}
 	}
 
 	return spell;
@@ -1003,14 +1052,10 @@ void CSpellHandler::afterLoadFinalization()
 	{
 		for(auto & level: spell->levels)
 		{
-			for(auto bonus : level.effectsTmp)
-			{
-				level.effects.push_back(*bonus);
-			}
-			level.effectsTmp.clear();
-
 			for(auto & bonus: level.effects)
-				bonus.sid = spell->id;
+				bonus->sid = spell->id;
+			for(auto & bonus: level.cumulativeEffects)
+				bonus->sid = spell->id;
 		}
 		spell->setup();
 	}
