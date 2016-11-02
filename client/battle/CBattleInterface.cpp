@@ -1342,7 +1342,7 @@ void CBattleInterface::spellCast(const BattleSpellCast *sc)
 
 void CBattleInterface::battleStacksEffectsSet(const SetStackEffect & sse)
 {
-	if (sse.effect.back().sid == -1 && sse.stacks.size() == 1 && sse.effect.size() == 2)
+	if (sse.stacks.size() == 1 && sse.effect.size() == 2 && sse.effect.back().sid == -1)
 	{
 		const Bonus & bns = sse.effect.front();
 		if (bns.source == Bonus::OTHER && bns.type == Bonus::PRIMARY_SKILL)

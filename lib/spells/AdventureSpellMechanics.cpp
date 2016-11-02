@@ -84,7 +84,7 @@ ESpellCastResult AdventureSpellMechanics::applyAdventureEffects(const SpellCastE
 
 		std::vector<Bonus> bonuses;
 
-		owner->getEffects(bonuses, schoolLevel);
+		owner->getEffects(bonuses, schoolLevel, false, parameters.caster->getEnchantPower(owner));
 
 		for(Bonus b : bonuses)
 		{
