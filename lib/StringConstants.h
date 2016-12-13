@@ -109,3 +109,14 @@ namespace NArtifactPosition
 
 	const std::string backpack = "backpack";
 }
+
+namespace NMetaclass
+{
+    const std::string names [16] =
+    {
+		"",
+		"artifact", "creature", "faction", "experience", "hero",
+		"heroClass", "luck", "mana", "morale", "movement",
+		"object", "primarySkill", "secondarySkill", "spell", "resource"
+    };
+}

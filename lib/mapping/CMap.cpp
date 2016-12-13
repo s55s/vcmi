@@ -62,6 +62,7 @@ bool PlayerInfo::hasCustomMainHero() const
 
 EventCondition::EventCondition(EWinLoseType condition):
 	object(nullptr),
+	metaType(EMetaclass::INVALID),
 	value(-1),
 	objectType(-1),
 	objectSubtype(-1),
@@ -72,6 +73,7 @@ EventCondition::EventCondition(EWinLoseType condition):
 
 EventCondition::EventCondition(EWinLoseType condition, si32 value, si32 objectType, int3 position):
 	object(nullptr),
+	metaType(EMetaclass::INVALID),
 	value(value),
 	objectType(objectType),
 	objectSubtype(-1),
@@ -555,6 +557,8 @@ void CMap::checkForObjectives()
 				//break; case EventCondition::IS_HUMAN:
 				//break; case EventCondition::DAYS_WITHOUT_TOWN:
 				//break; case EventCondition::STANDARD_WIN:
+
+				//TODO: support new condition format
 			}
 			return cond;
 		};

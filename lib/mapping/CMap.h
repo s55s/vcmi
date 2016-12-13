@@ -135,6 +135,7 @@ struct DLL_LINKAGE EventCondition
 	EventCondition(EWinLoseType condition, si32 value, si32 objectType, int3 position = int3(-1, -1, -1));
 
 	const CGObjectInstance * object; // object that was at specified position or with instance name on start
+	EMetaclass metaType;
 	si32 value;
 	si32 objectType;
 	si32 objectSubtype;
@@ -155,6 +156,8 @@ struct DLL_LINKAGE EventCondition
 			h & objectSubtype;
 			h & objectInstanceName;
 		}
+		if(version >= 770)
+			h & metaType;
 	}
 };
 

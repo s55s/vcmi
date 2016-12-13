@@ -2376,9 +2376,18 @@ bool CGameState::checkForVictory(PlayerColor player, const EventCondition & cond
 		{
 			return condition.value; // just convert to bool
 		}
+		case EventCondition::HAVE_0:
+		case EventCondition::HAVE_BUILDING_0:
+		case EventCondition::DESTROY_0:
+		{
+			logGlobal->debug("Not implemented event condition type: %d", (int)condition.condition);
+			//TODO: support new condition format
+			return false;
+		}
+		default:
+			logGlobal->error("Invalid event condition type: %d", (int)condition.condition);
+			return false;
 	}
-	assert(0);
-	return false;
 }
 
 PlayerColor CGameState::checkForStandardWin() const

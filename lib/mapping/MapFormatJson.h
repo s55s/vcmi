@@ -73,9 +73,6 @@ protected:
 	 */
 	void writeTeams(JsonSerializer & handler);
 
-	///common part triggered events of saving/loading
-	void serializeTriggeredEvents(JsonSerializeFormat & handler);
-
 	/**
 	 * Reads triggered events, including victory/loss conditions
 	 */
