@@ -91,6 +91,16 @@ ObjectTemplate & ObjectTemplate::operator=(const ObjectTemplate & rhs)
 	return *this;
 }
 
+void ObjectTemplate::afterLoadFixup()
+{
+	if(id == Obj::EVENT)
+	{
+		setSize(1,1);
+		usedTiles[0][0] = VISITABLE;
+		visitDir = 0xFF;
+	}
+}
+
 void ObjectTemplate::readTxt(CLegacyConfigParser & parser)
 {
 	std::string data = parser.readString();
@@ -209,11 +219,7 @@ void ObjectTemplate::readMap(CBinaryReader & reader)
 	reader.skip(16);
 	readMsk();
 
-	if (id == Obj::EVENT)
-	{
-		setSize(1,1);
-		usedTiles[0][0] = VISITABLE;
-	}
+	afterLoadFixup();
 }
 
 void ObjectTemplate::readJson(const JsonNode &node, const bool withTerrain)
@@ -287,6 +293,8 @@ void ObjectTemplate::readJson(const JsonNode &node, const bool withTerrain)
 	}
 
 	printPriority = node["zIndex"].Float();
+
+	afterLoadFixup();
 }
 
 void ObjectTemplate::writeJson(JsonNode & node, const bool withTerrain) const

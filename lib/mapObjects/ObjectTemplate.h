@@ -33,6 +33,8 @@ class DLL_LINKAGE ObjectTemplate
 	/// list of terrains on which this object can be placed
 	std::set<ETerrainType> allowedTerrains;
 
+	void afterLoadFixup();
+
 public:
 	/// H3 ID/subID of this object
 	Obj id;
