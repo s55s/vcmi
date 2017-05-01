@@ -1088,9 +1088,9 @@ void CMapLoaderJson::MapObjectLoader::construct()
 
 	ObjectTemplate appearance;
 
-	appearance.readJson(configuration["template"], false);
 	appearance.id = Obj(handler->type);
 	appearance.subid = handler->subtype;
+	appearance.readJson(configuration["template"], false);
 
 	instance = handler->create(appearance);
 
