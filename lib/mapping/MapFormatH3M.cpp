@@ -130,6 +130,7 @@ void CMapLoaderH3M::init()
 		}
 	}
 	map->calculateGuardingGreaturePositions();
+	afterRead();
 }
 
 void CMapLoaderH3M::readHeader()
@@ -2194,7 +2195,6 @@ void CMapLoaderH3M::readBitmask(std::vector<bool>& dest, const int byteCount, co
 	}
 }
 
-
 ui8 CMapLoaderH3M::reverse(ui8 arg)
 {
 	ui8 ret = 0;
@@ -2206,4 +2206,34 @@ ui8 CMapLoaderH3M::reverse(ui8 arg)
 		}
 	}
 	return ret;
+}
+
+void CMapLoaderH3M::afterRead()
+{
+    //convert main town positions for all players to actual object position, in H3M it is position of active tile
+
+    for(auto & p : map->players)
+	{
+		int3 posOfMainTown = p.posOfMainTown;
+		if(posOfMainTown.valid() && map->isInTheMap(posOfMainTown))
+		{
+			const TerrainTile & t = map->getTile(posOfMainTown);
+
+			const CGObjectInstance * mainTown = nullptr;
+
+			for(auto obj : t.visitableObjects)
+			{
+				if(obj->ID = Obj::TOWN)
+				{
+					mainTown = obj;
+					break;
+				}
+			}
+
+			if(mainTown == nullptr)
+				continue;
+
+			p.posOfMainTown = posOfMainTown + mainTown->getVisitableOffset();
+		}
+	}
 }

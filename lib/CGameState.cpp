@@ -1152,10 +1152,11 @@ void CGameState::placeCampaignHeroes()
 
 void CGameState::placeStartingHero(PlayerColor playerColor, HeroTypeID heroTypeId, int3 townPos)
 {
-	townPos.x += 1;
+	townPos.x -= 2; //FIXME: use actual visitable offset of town
 
-	CGHeroInstance * hero =  static_cast<CGHeroInstance*>(createObject(Obj::HERO, heroTypeId.getNum(), townPos, playerColor));
-	map->getEditManager()->insertObject(hero, townPos);
+	CGObjectInstance * hero = createObject(Obj::HERO, heroTypeId.getNum(), townPos, playerColor);
+	hero->pos += hero->getVisitableOffset();
+	map->getEditManager()->insertObject(hero, hero->pos);
 }
 
 CGameState::CrossoverHeroesList CGameState::getCrossoverHeroesFromPreviousScenarios() const
@@ -1676,7 +1677,7 @@ void CGameState::initTowns()
 					PlayerInfo & pi = map->players[owner->color.getNum()];
 
 					if (owner->human && //human-owned
-						map->towns[g]->pos == pi.posOfMainTown + int3(2, 0, 0))
+						map->towns[g]->pos == pi.posOfMainTown)
 					{
 						map->towns[g]->builtBuildings.insert(
 							CBuildingHandler::campToERMU(chosenBonus->info1, map->towns[g]->subID, map->towns[g]->builtBuildings));
