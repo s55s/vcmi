@@ -121,8 +121,12 @@ BOOST_AUTO_TEST_CASE(MapFormat_Objects)
 
 	static const std::string MAP_DATA_PATH = "test/ObjectPropertyTest/";
 
-	const JsonNode expectedHeader(ResourceID(MAP_DATA_PATH+"header.json"));
-	const JsonNode expectedObjects(ResourceID(MAP_DATA_PATH+"objects.json"));
+	const JsonNode initialHeader(ResourceID(MAP_DATA_PATH+"header.json"));
+	const JsonNode expectedHeader(ResourceID(MAP_DATA_PATH+"header.json"));//same as initial for now
+
+	const JsonNode initialObjects(ResourceID(MAP_DATA_PATH+"objects.json"));
+	const JsonNode expectedObjects(ResourceID(MAP_DATA_PATH+"objects.ex.json"));
+
 	const JsonNode expectedSurface(ResourceID(MAP_DATA_PATH+"surface_terrain.json"));
 	const JsonNode expectedUnderground(ResourceID(MAP_DATA_PATH+"underground_terrain.json"));
 
@@ -135,8 +139,8 @@ BOOST_AUTO_TEST_CASE(MapFormat_Objects)
 		{
 			CZipSaver initialSaver(originalDataIO, "_");
 
-			addToArchive(initialSaver, expectedHeader, "header.json");
-			addToArchive(initialSaver, expectedObjects, "objects.json");
+			addToArchive(initialSaver, initialHeader, "header.json");
+			addToArchive(initialSaver, initialObjects, "objects.json");
 			addToArchive(initialSaver, expectedSurface, "surface_terrain.json");
 			addToArchive(initialSaver, expectedUnderground, "underground_terrain.json");
 		}
