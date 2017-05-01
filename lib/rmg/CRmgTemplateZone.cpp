@@ -2092,7 +2092,7 @@ void CRmgTemplateZone::checkAndPlaceObject(CMapGenerator* gen, CGObjectInstance*
 		object->appearance = templates.front();
 	}
 
-	gen->editManager->insertObject(object, pos);
+	gen->editManager->insertObject(object);
 	//logGlobal->traceStream() << boost::format ("Successfully inserted object (%d,%d) at pos %s") %object->ID %object->subID %pos();
 }
 

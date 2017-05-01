@@ -1144,7 +1144,7 @@ void CGameState::placeCampaignHeroes()
 
 				hero->subID = heroTypeId;
 				hero->portrait = hero->subID;
-				map->getEditManager()->insertObject(hero, hero->pos);
+				map->getEditManager()->insertObject(hero);
 			}
 		}
 	}
@@ -1156,7 +1156,7 @@ void CGameState::placeStartingHero(PlayerColor playerColor, HeroTypeID heroTypeI
 
 	CGObjectInstance * hero = createObject(Obj::HERO, heroTypeId.getNum(), townPos, playerColor);
 	hero->pos += hero->getVisitableOffset();
-	map->getEditManager()->insertObject(hero, hero->pos);
+	map->getEditManager()->insertObject(hero);
 }
 
 CGameState::CrossoverHeroesList CGameState::getCrossoverHeroesFromPreviousScenarios() const
